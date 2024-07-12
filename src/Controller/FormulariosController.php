@@ -16,6 +16,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class FormulariosController extends AbstractController
 {
@@ -161,7 +162,7 @@ class FormulariosController extends AbstractController
 
 
     #[Route('/formularios/upload', name: 'formulario_upload')]
-    public function upload(Request $request, ValidatorInterface $validator): Response
+    public function upload(Request $request, ValidatorInterface $validator, SluggerInterface $slugger): Response
     {
         $persona = new PersonaEntityUpload();
         $form=$this->createForm(PersonaUploadType::class, $persona);
@@ -181,14 +182,30 @@ class FormulariosController extends AbstractController
                     if($foto)
                     {
                         $originalName=pathinfo($foto->getClientOriginalName(), PATHINFO_FILENAME);
-                        die($originalName);
+                        $newFileName = time() . '.' . $foto->guessExtension();
+
+                        
+                        // $safeFilename = $slugger->slug($originalName);
+                        // $newFileName = $safeFilename.'-'.uniqid().'.'.$foto->guessExtension();
+
+                        
+                        try {
+                            $foto->move(
+                                $this->getParameter('fotos_directory'),
+                                $newFileName
+                            );
+                        } catch (FileException $th) {
+                            throw \Exception("mensaje", "Ups, ocurrio un error al intentar subir el archivo");
+                        }
+                        $persona->setFoto($newFileName);
                     }
                     $campos = $form->getData();
-                    echo "Nombre: " . $campos->getNombre() . 
-                         "Correo: " . $campos->getCorreo() . 
-                         "Telefono: " . $campos->getTelefono() . 
-                         "Pais: " . $campos->getPais() . 
-                         "Intereses: " . implode(", ", $campos->getIntereses());
+                    echo "Nombre: " . $campos->getNombre() . " | " .
+                         "Correo: " . $campos->getCorreo() . " | " .
+                         "Telefono: " . $campos->getTelefono() . " | " .
+                         "Pais: " . $campos->getPais() . " | " .
+                         "Intereses: " . implode(", ", $campos->getIntereses()) . " | " .
+                         "Foto: " . $newFileName;
                     die(); 
                 }
             }else

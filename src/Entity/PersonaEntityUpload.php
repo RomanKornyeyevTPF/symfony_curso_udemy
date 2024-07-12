@@ -15,6 +15,17 @@ class PersonaEntityUpload
     protected $pais;
     #[Assert\NotBlank(message: 'Debe seleccionar un interés al menos')]
     protected $intereses = [];
+    #[Assert\File(
+        maxSize: "10M" ,
+        mimeTypes: 
+        [
+            "image/jpeg",
+            "image/jpg",
+            "image/png"
+        ],
+        mimeTypesMessage: 'La foto debe ser JPG|PNG',
+        maxSizeMessage: 'La foto no puede pesar más de 10MB'
+    )]
     protected $foto;
 
     public function getNombre():string

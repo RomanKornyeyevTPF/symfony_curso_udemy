@@ -6,7 +6,7 @@
 extension=curl
 ;extension=ffi
 ;extension=ftp
-;extension=fileinfo
+extension=fileinfo
 ;extension=gd
 ;extension=gettext
 ;extension=gmp

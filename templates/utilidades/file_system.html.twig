@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilidades File System{% endblock %}
+
+{% block body %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('home_inicio') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('utilidades_inicio') }}">Utilidades</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Utilidad File System</li>
+        </ol>
+    </nav>
+    <h1>File system component</h1>
+    <p>
+        (composer require symfony/filesystem)
+    </p>
+{% endblock %}

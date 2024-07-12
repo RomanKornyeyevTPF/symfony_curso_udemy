@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilidades API Rest{% endblock %}
+
+{% block body %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('home_inicio') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('utilidades_inicio') }}">Utilidades</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Utilidad API Rest</li>
+        </ol>
+    </nav>
+    <h1>Enviar email</h1>
+    <p>
+        (composer require symfony/http-client)
+    </p>
+    <p class="d-flex justify-content-end">
+        <a href="" class="btn btn-success">
+            Crear
+        </a>
+    </p>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                 <!-- for dato in response.toArray() 
+                    <tr>
+                        <td> dato.id </td>
+                    </tr>
+                 endfor  -->
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

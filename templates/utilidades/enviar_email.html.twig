@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilidades email{% endblock %}
+
+{% block body %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('home_inicio') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('utilidades_inicio') }}">Utilidades</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Utilidad email</li>
+        </ol>
+    </nav>
+    <h1>Enviar email</h1>
+    <p>
+        (composer require symfony/mailer)
+        <br>
+        (comenta la configuración predeterminada en config/packages/messenger.yaml 
+        # Symfony\Component\Mailer\Messenger\SendEmailMessage: async)
+    </p>
+{% endblock %}

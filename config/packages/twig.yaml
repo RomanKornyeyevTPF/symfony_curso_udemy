@@ -1,0 +1,10 @@
+twig:
+    file_name_pattern: '*.twig'
+    form_themes: ['bootstrap_5_layout.html.twig']
+    globals:
+        roman: 'romankr.es'
+    #exception_controller: null
+
+when@test:
+    twig:
+        strict_variables: true

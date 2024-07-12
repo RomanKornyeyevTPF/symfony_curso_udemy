@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Oops! Página no encontrada{% endblock %}
+
+{% block body %}
+    <div style="text-align: center; margin-top: 50px;">
+        <h1>404 - Página no encontrada</h1>
+        <img src="https://media.giphy.com/media/14uQ3cOFteDaU/giphy.gif" alt="Confused Travolta" style="width: 300px; height: auto;">
+        <p>¡Vaya! Parece que te has perdido.</p>
+        <p>No podemos encontrar la página que estás buscando.</p>
+        <p>¿Por qué no vuelves a la <a href="{{ path('home_inicio') }}">página principal</a>?</p>
+        <p>O disfruta de este GIF mientras lo piensas...</p>
+        <p>Si necesitas ayuda, puedes contactarnos en <a href="#">soporte@example.com</a>.</p>
+    </div>
+{% endblock %}

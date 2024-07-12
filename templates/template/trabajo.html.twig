@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Trabajo
+{% endblock %}
+
+{% block body %}
+    <h1>TEMPLATE TRABAJO</h1>
+    {% set edad=15 %}
+    <h2>NOMBRE DINÁMICO: {{nombre}}</h2>
+    <h2>EDAD: {{edad}}</h2>
+    {% if edad >=18 %}
+        Es mayor de edad
+    {% else %}
+        Es menor
+    {% endif %}
+
+    {% set var = "<script>alert('hola mundo')</script>" %}
+
+    {{ var }}
+
+    <p>Variable global: {{ roman }} </p>
+{% endblock %}

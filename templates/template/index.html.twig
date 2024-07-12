@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Layout
+{% endblock %}
+
+{% block body %}
+    <h1>Index template</h1>
+<p>
+    <a href="{{path('template_trabajo')}}">Ir a trabajo</a>
+    <br>
+    <a href="{{ path('template_params', {id: 10, slug: 'slug'}) }}">Ir a params</a>
+</p>
+{% endblock %}

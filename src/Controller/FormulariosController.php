@@ -122,11 +122,13 @@ class FormulariosController extends AbstractController
 
 
 
-    #[Route('/formularios/validation', name: 'formulario_valitation')]
+    #[Route('/formularios/validation', name: 'formulario_validation')]
     public function validation(Request $request, ValidatorInterface $validator): Response
     {
         $persona = new PersonaEntityValidation();
         $form=$this->createForm(PersonaValidationType::class, $persona);
+        // $form=$this->createForm(PersonaValidationType::class);
+        // $request = Request::createFromGlobals();
         $form->handleRequest($request);
         $submittedToken = $request->request->get('token');
         if ($form->isSubmitted()) {

@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Formulario valitation{% endblock %}
+{% block title %}Formulario validation{% endblock %}
 
 {% block body %}
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ path('home_inicio') }}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{ path('formularios_inicio') }}">Formularios</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Formularios valitation</li>
+            <li class="breadcrumb-item active" aria-current="page">Formularios validation</li>
         </ol>
     </nav>
     {% for mensaje in app.flashes('mensaje') %}
@@ -16,7 +16,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     {% endfor %}
-    <h1>Formulario valitation</h1>
+    <h1>Formulario validation</h1>
 
     {% if errors %}
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -29,7 +29,7 @@
         </div>
     {% endif %}
 
-    <form action="{{ url('formulario_valitation') }}" method="POST">
+    <form action="{{ url('formulario_validation') }}" method="POST">
         <div class="form-group">
             <label for="persona_validation_nombre">Nombre</label>
             {{form_widget(form.nombre, {"required":false, "attr":{"placeholder":"Nombre"}})}}

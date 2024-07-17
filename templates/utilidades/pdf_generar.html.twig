@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>PDF generado</title>
+</head>
+<body>
+    <div style="margin:0 auto; display: block; width: 500px;">
+        <h1 col>Título</h1>
+        <table width="100%" border="1">
+            <tr>
+                <td colspan="2">
+                    <img src="{{ imageSrc }}" alt="img">
+                </td>
+            </tr>
+            <tr>
+                <td>Nombre</td>
+                <td>{{ nombre }}</td>
+            </tr>
+            <tr>
+                <td>País:</td>
+                <td>{{ pais }} </td>
+            </tr>
+            <tr>
+                <td>Teléfono</td>
+                <td>{{ telefono }} </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{ correo }} </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

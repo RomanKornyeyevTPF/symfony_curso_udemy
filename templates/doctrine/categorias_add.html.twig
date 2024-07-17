@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Doctrine{% endblock %}
+
+{% block body %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('doctrine_inicio') }}">Doctrine</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('doctrine_categorias') }}">Categorias</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Crear categoría</li>
+        </ol>
+    </nav>
+    <h1>Crear categoría</h1>
+    <div class="row">
+        
+        <form action="{{ url('doctrine_categorias_add') }}" method="POST">
+            {% if errors %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <ul>
+                        {% for error in errors %}
+                            <li>{{ error.message }} </li>
+                        {% endfor %}
+                    </ul>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+            {% for mensaje in app.flashes('mensaje') %}
+                <div class="alert alert-{{ app.flashes('css')[0] }} alert-dismissible fade show" role="alert">
+                    {{ mensaje }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+            <div class="form-group">
+                <label for="categoria_form_nombre">Nombre</label>
+                {{ form_widget(form.nombre, {"required": false, "attr": {"placeholder": "Nombre"}}) }}
+            </div>
+            <hr>
+            <input type="hidden" name="token" value="{{ csrf_token('generico') }}">
+            <button class="btn btn-primary text-capitalize" type="submit"><i class="fa-solid fa-check"></i> enviar</button>
+        </form>
+    </div>
+{% endblock %}

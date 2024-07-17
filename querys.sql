@@ -1,0 +1,2 @@
+-- insert into categoria (nombre, slug) values ('Categoría 3 con ñ', 'categoria-3-con-n');
+-- insert into producto (categoria_id, nombre, slug, precio, stock, descripcion) values ('1', 'Producto 1', 'producto-1', 15, 257, 'descripcion generica'), ('1', 'Producto 2', 'producto-2', 18, 317, 'descripcion generica'), ('2', 'Producto 3', 'producto-3', 12, 1287, 'descripcion generica'); 
